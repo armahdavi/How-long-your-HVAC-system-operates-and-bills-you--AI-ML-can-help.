@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Programt to extract features from the study residence for runtime prediction using Machine Learning
+Program to extract features from the study residence for runtime prediction using Machine Learning
 The features intially selected are:
     1) Timestamp (will be excluded for ML training as derivatives will link observations)
     2) Visit (proxy for week # of the study)
