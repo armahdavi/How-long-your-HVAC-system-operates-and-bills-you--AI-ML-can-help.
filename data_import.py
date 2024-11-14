@@ -54,7 +54,6 @@ df_co2['Time'] = pd.to_datetime(df_co2['Time'])
 df_overall.dropna(subset = ['Temp'],  inplace = True)
 
 df_all = df.merge(df_overall, on = 'Time', how = 'inner')
-
 df_all = pd.merge(df_overall, df_co2, on = 'Time', how = 'inner')
 df_all = pd.merge(df_all, df, on = 'Time', how = 'inner')
 df_all = df_all.dropna()
