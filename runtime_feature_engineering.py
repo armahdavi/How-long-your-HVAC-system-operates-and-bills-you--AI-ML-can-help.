@@ -22,7 +22,7 @@ exec(open('notion_corrections.py').read())
 ########################################
 ### Step 1: Data ETL for ML Modeling ###
 ########################################
-df = pd.read_excel(backslash_correct('rt_data_master.xlsx'))
+df = pd.read_excel('rt_data_master.xlsx')
 df = df[df['visit'] < 5] 
 ## The last two visits (5 and 6 are excluded as representing unusual cases: 
 ## HVAC was intentionally running continously with fan only mode to collect more dust for QFF)
