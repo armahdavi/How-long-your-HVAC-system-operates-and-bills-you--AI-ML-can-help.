@@ -42,9 +42,9 @@ split_indices[:fold_size] = 3
 custom_cv = PredefinedSplit(test_fold=split_indices)
 
 
-#################################################
-### Step 3: RF Model Development and Training ### 
-#################################################
+##################################################
+### Step 3: SVC Model Development and Training ### 
+##################################################
 
 scoring = {
     'recall': 'recall',
