@@ -17,14 +17,14 @@ import os
 import glob
 import numpy as np
 
-exec(open(r'C:\Life\5- Career & Business Development\Learning\Python Practice\Generic Codes\notion_corrections.py').read())
-exec(open(r'C:\Life\5- Career & Business Development\Learning\Python Practice\Generic Codes\sensor_master_generic_simple.py').read())
+exec(open('notion_corrections.py').read())
+exec(open('sensor_master_generic_simple.py').read())
 
 ###############################################
 ### Step 1: Reading Temperature and RH data ###
 ###############################################
-path = backslash_correct(r'C:\Life\5- Career & Business Development\Learning\Python Practice\Stata_Python_Booster\PhD - QFF\Raw\ambient\\')
-exp_path = backslash_correct(r'C:\Life\5- Career & Business Development\Learning\Python Practice\Stata_Python_Booster\PhD - QFF\Processed\ambient\\')
+path = backslash_correct(r'C:\PhD Research\QFF Evaluation\Raw\ambient\\')
+exp_path = backslash_correct(r'C:\PhD Research\QFF Evaluation\Processed\ambient\\')
 os.chdir(path)
 
 # i = 1
@@ -37,14 +37,14 @@ for file in glob.glob('*.csv'):
 df_overall['Time'] = pd.to_datetime(df_overall['Time'])
 df_overall.sort_values('Time', inplace = True)
 
-df = pd.read_excel(backslash_correct(r'C:\Life\5- Career & Business Development\Learning\Python Practice\Stata_Python_Booster\PhD - QFF\Processed\runtime_master.xlsx'))
+df = pd.read_excel(r'runtime_master.xlsx')
 df = df[['Time', 'visit', 'Mode']]
 
 ################################
 ### Step 2: Reading CO2 data ###
 ################################
-path_co2 = backslash_correct(r'C:\Life\5- Career & Business Development\Learning\Python Practice\Stata_Python_Booster\PhD - QFF\Raw\co2\\')
-exp_path_co2 = backslash_correct(r'C:\Life\5- Career & Business Development\Learning\Python Practice\Stata_Python_Booster\PhD - QFF\Processed')
+path_co2 = backslash_correct(r'C:\PhD Research\QFF Evaluation\Raw\co2\\')
+exp_path_co2 = backslash_correct(r'C:\PhD Research\QFF Evaluation\Processed')
 df_co2 = hobo_co2_read_in(path_co2, exp_path_co2, 'qff_eval_co2iox_452_180829_am.csv', 'qff_eval_co2iox.xlsx')
 df_co2['Time'] = pd.to_datetime(df_co2['Time'])
 
@@ -68,5 +68,5 @@ for col in ['Temp', 'RH']:
 df_all.dropna(subset = ['RH_2nd_der'],  inplace = True)
 
 df_all = df_all[['Time', 'visit', 'Temp', 'RH', 'Temp_1st_der', 'Temp_2nd_der', 'RH_1st_der', 'RH_2nd_der', 'CO2 In', 'CO2 Out', 'Mode']]
-df_all.to_excel(backslash_correct(r'C:\Life\5- Career & Business Development\Learning\Python Practice\Stata_Python_Booster\PhD - QFF\Processed\ML\rt_data_master.xlsx'), index = False)
+df_all.to_excel('rt_data_master.xlsx', index = False)
     
