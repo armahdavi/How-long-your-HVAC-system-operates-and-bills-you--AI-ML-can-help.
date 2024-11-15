@@ -11,14 +11,14 @@ from sklearn.model_selection import GridSearchCV, PredefinedSplit
 from sklearn.neighbors import KNeighborsClassifier
 import warnings
 warnings.filterwarnings('ignore')  
-exec(open(r'C:\Life\5- Career & Business Development\Learning\Python Practice\Generic Codes\notion_corrections.py').read())
+exec(open('notion_corrections.py').read())
 
 
 ########################################
 ### Step 1: Data ETL for ML Modeling ###
 ########################################
 
-df = pd.read_excel(backslash_correct(r'C:\Life\5- Career & Business Development\Learning\Python Practice\Stata_Python_Booster\PhD - QFF\Processed\ML\rt_data_master_ml.xlsx'))
+df = pd.read_excel('rt_data_master_ml.xlsx')
 ## Two dataframes: 1) all features, 2) features other than temperature, RH and their derivatives deleted
 X1 = df[['Temp', 'RH', 'Temp_1st_der', 'Temp_2nd_der',
        'RH_1st_der', 'RH_2nd_der']]
