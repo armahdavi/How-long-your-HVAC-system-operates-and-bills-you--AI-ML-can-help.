@@ -12,13 +12,13 @@ from xgboost import XGBClassifier
 
 import warnings
 warnings.filterwarnings('ignore')  
-exec(open(r'C:\Life\5- Career & Business Development\Learning\Python Practice\Generic Codes\notion_corrections.py').read())
+exec(open('notion_corrections.py').read())
 
 ########################################
 ### Step 1: Data ETL for ML Modeling ###
 ########################################
 
-df = pd.read_excel(backslash_correct(r'C:\Life\5- Career & Business Development\Learning\Python Practice\Stata_Python_Booster\PhD - QFF\Processed\ML\rt_data_master_ml.xlsx'))
+df = pd.read_excel('rt_data_master_ml.xlsx')
 ## Two dataframes: 1) all features, 2) features other than temperature, RH and their derivatives deleted
 X = df[['Temp', 'RH', 'Temp_1st_der', 'Temp_2nd_der',
        'RH_1st_der', 'RH_2nd_der']]
@@ -42,9 +42,9 @@ split_indices[:fold_size] = 3
 custom_cv = PredefinedSplit(test_fold=split_indices)
 
 
-#################################################
-### Step 3: RF Model Development and Training ### 
-#################################################
+##################################################
+### Step 3: XGB Model Development and Training ### 
+##################################################
 
 scoring = {
     'recall': 'recall',
