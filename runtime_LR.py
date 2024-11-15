@@ -42,7 +42,7 @@ custom_cv = PredefinedSplit(test_fold=split_indices)
 
 
 #################################################
-### Step 3: RF Model Development and Training ### 
+### Step 3: LR Model Development and Training ### 
 #################################################
 
 scoring = {
